@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import { IData } from './interfaces/interfaces';
 import Container from '@mui/material/Container';
 
