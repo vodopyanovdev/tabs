@@ -4,13 +4,13 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import { v4 } from 'uuid';
 
 interface TabsProps {
   response: any;
 }
 
 export const TabsComponent: FC<Required<TabsProps>> = ({ response }) => {
-  console.log(response);
   const { results: post } = response;
 
   const [tab, setTab] = useState<number>(0);
@@ -35,7 +35,7 @@ export const TabsComponent: FC<Required<TabsProps>> = ({ response }) => {
     <>
       <Tabs value={tab}>
         {tabs.map((tab: string, i: number) => {
-          return <Tab onClick={() => handleChange(i)} label={tab} />;
+          return <Tab key={v4()} onClick={() => handleChange(i)} label={tab} />;
         })}
       </Tabs>
       <TabPanel value={{ tab, groupingPosts }}></TabPanel>
@@ -56,6 +56,7 @@ const TabPanel: FC<TabPanelProps> = ({ value }) => {
     <>
       {posts.map((post: IPost) => (
         <Box
+          key={v4()}
           sx={{
             padding: '1rem',
           }}

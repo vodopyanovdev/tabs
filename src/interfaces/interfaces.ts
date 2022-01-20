@@ -1,14 +1,16 @@
+export interface IDataResponse {
+  status: string;
+  userTier: string;
+  total: number;
+  startIndex: number;
+  pageSize: number;
+  pages: number;
+  orderBy: string;
+  data: IPost[];
+}
+
 export interface IData {
-  response: {
-    status: string;
-    userTier: string;
-    total: number;
-    startIndex: number;
-    pageSize: number;
-    pages: number;
-    orderBy: string;
-    data: IPost[];
-  };
+  response: IData;
 }
 
 export interface IPost {
