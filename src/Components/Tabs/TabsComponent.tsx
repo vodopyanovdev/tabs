@@ -21,12 +21,6 @@ export const TabsComponent: FC<Required<TabsProps>> = ({ response }) => {
     return acc;
   }, {});
 
-  let tabs: string[] = [];
-
-  for (let tab in groupingPosts) {
-    tabs.push(tab);
-  }
-
   const handleChange = (i: number) => {
     setTab(i);
   };
@@ -34,7 +28,7 @@ export const TabsComponent: FC<Required<TabsProps>> = ({ response }) => {
   return (
     <>
       <Tabs value={tab}>
-        {tabs.map((tab: string, i: number) => {
+        {Object.keys(groupingPosts).map((tab: string, i: number) => {
           return <Tab key={v4()} onClick={() => handleChange(i)} label={tab} />;
         })}
       </Tabs>
